@@ -1,0 +1,26 @@
+if game.Place == 13772394625 then 
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+    OrionLib:MakeNotification({
+        Name = "Thank for use script",
+        Content = "Script by Newgate",
+        Image = "rbxassetid://4483345998",
+        Time = 4
+    })
+
+    local Tab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+
+    Main:AddButton(){
+        Name = "Auto Parry",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/multiversal123/Azelf-Hub/main/0bladeball"))()
+          end    
+    }
+
+end 
