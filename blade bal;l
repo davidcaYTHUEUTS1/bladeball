@@ -1,0 +1,43 @@
+script.Parent.ImageButton.MouseButton1Down:Connect(function()
+	if script.Parent.Frame.Visible == true then
+		script.Parent.Frame.Visible = false
+	else
+		script.Parent.Frame.Visible = true
+	end
+end)
+
+
+OrionLib:MakeNotification({
+	Name = "buy to Edwartd ",
+	Content = "https://discord.gg/wMAAcxjFww",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+
+local fun = {Main} -- day la table
+function fun:CreateNewButton(Name,CallBack)
+	--//Instance Button
+	local TextButton = Instance.new("TextButton")
+	--//Properties
+	--[[Cho Properties button m vao]]
+	--//Func
+	TextButton.MouseButton1Click:Connect(function()
+		CallBack()
+	end)
+end
+fun:CreateNewButton("condime",function()
+	print("xamloon")
+end)
+return fun
+
+
+:AddToggle({
+	Name = "Auto pary",
+	Default = false,
+	Callback = function(Value)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry",true))()
+	end    
+})
+
