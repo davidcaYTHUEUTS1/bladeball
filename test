@@ -1,0 +1,44 @@
+if game.PlaceId == 13772394625 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Rimus Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+    _G.AutoParry = true
+    _G.Autospam = true
+    _G.AutoBuySword = true
+
+    local Tab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    Tab:AddButton({
+        Name = "Auto Parry",
+        Callback = function()
+            _G.AutoParry = not _G.AutoParry
+            print("Auto Parry is now " .. (_G.AutoParry and "enabled" or "disabled"))
+        end
+    })
+
+    Tab:AddButton({
+        Name = "Auto Spam",
+        Callback = function()
+            _G.Autospam = not _G.Autospam
+            print("Auto Spam is now " .. (_G.Autospam and "enabled" or "disabled"))
+
+            -- Your existing code for Auto Spam
+            -- ...
+        end
+    })
+
+    Tab:AddButton({
+        Name = "Auto Buy Sword",
+        Callback = function()
+            _G.AutoBuySword = not _G.AutoBuySword
+            print("Auto Buy Sword is now " .. (_G.AutoBuySword and "enabled" or "disabled"))
+
+            -- Your existing code for Auto Buy Sword
+            -- ...
+        end
+    })
+end
