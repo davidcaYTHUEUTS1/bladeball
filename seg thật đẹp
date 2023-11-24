@@ -1,0 +1,88 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Rimus Hub", HidePremium = false, IntroText = "Rimus Hub", IntroEnabled = true, SaveConfig = true, ConfigFolder = "Rimus Hub"})
+
+    _G.AutoParry = true
+    _G.Autospam = true
+    _G.BuySword = true
+
+    local Tab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    Main:AddToggle({
+        Name = "This is a toggle!",
+        Default = false,
+        Callback = function(Value)
+            print(Value)
+
+game:GetService("ReplicatedStorage").Remotes.ParryAttempt:FireServer(0.5,CFrame.new(-231.023392, 135.925827, 98.6734924, 0.994850934, -0.05050065, 0.0878717676, 0, 0.8670156, 0.498281091, -0.101349719, -0.49571541, 0.862551153),{["1kz38p"] = ,["sir123450s"] = ,["Kiwi_Kade"] = ,["K1AssassinYT"] = ,["xXKatie_Cat100Xx"] = ,["Valee7_77"] = ,["Jris12356545654"] = ,["RELLGA11"] = },{545,209})
+        
+        end    
+    })
+
+
+    Tab:AddButton({
+        Name = "Auto Spam",
+        Callback = function()
+            local gui = Instance.new("ScreenGui")
+            gui.ResetOnSpawn = false
+            gui.Parent = game.CoreGui
+
+            local frame = Instance.new("Frame")
+            frame.Position = UDim2.new(0, 50, 0, 10)
+            frame.Size = UDim2.new(0, 100, 0, 75)
+            frame.BackgroundColor3 = Color3.new(0, 0, 0)
+            frame.BorderSizePixel = 0
+            frame.Parent = gui
+
+            local button = Instance.new("TextButton")
+            button.Text = "off spam"
+            button.Size = UDim2.new(1, -10, 1, -20)
+            button.Position = UDim2.new(0, 10, 0, 10)
+            button.BackgroundColor3 = Color3.new(1, 1, 1)
+            button.BorderColor3 = Color3.new(0, 0, 0)
+            button.BorderSizePixel = 2
+            button.Font = Enum.Font.SourceSans
+            button.TextColor3 = Color3.new(0, 0, 0)
+            button.TextSize = 16
+            button.Parent = frame
+
+            local activated = true
+
+            local function toggle()
+                activated = not activated
+                button.Text = activated and "on spam" or "off spam"
+
+                while activated do
+                    local args = {
+                        [1] = 1.4,
+                        [2] = CFrame.new(-254.2939910888672, 112.13581848144531, -119.27256774902344) * CFrame.Angles(-2.029526710510254, 0.5662040710449219, 2.314905881881714),
+                        [3] = {
+                            ["2617721424"] = Vector3.new(-273.400146484375, -724.8031005859375, -20.92414093017578),
+                        },
+                        [4] = {
+                            [1] = 910,
+                            [2] = 154
+                        }
+                    }
+
+                    game:GetService("ReplicatedStorage").Remotes.ParryAttempt:FireServer(unpack(args))
+                    wait()  -- Replace with game:GetService("RunService").Heartbeat:Wait() if necessary
+                end
+            end
+
+            button.MouseButton1Click:Connect(toggle)
+        end
+    })
+
+    Tab:AddToggle({
+        Name = "This is a toggle!",
+        Default = false,
+        Callback = function(Value)
+            game:GetService("ReplicatedStorage").Remote.RemoteFunction:InvokeServer("PromptPurchaseCrate", workspace.Spawn.Crates.Model.NormalSwordCrate)
+            game:GetService("ReplicatedStorage").Remote.RemoteEvent:FireServer("OpeningCase", true)
+        end
+    })
+end 
